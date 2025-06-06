@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galería - Colegio Trilce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --trilce-orange: #ff5a28;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf8;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 230px;
+      height: 100%;
+      background-color: var(--trilce-orange);
+      padding: 30px 20px;
+      color: white;
+      box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar img {
+      width: 180px;
+      display: block;
+      margin: 0 auto 40px auto;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #e94a1e;
+      transform: translateX(5px);
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 40px;
+    }
+
+    .title {
+      color: #333;
+      margin-bottom: 30px;
+      border-left: 6px solid var(--trilce-orange);
+      padding-left: 12px;
+      font-size: 2rem;
+    }
+
+    .gallery-item {
+      border: 2px solid var(--trilce-orange);
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+      background: white;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: var(--trilce-orange);
+    }
+
+    .description {
+      display: none;
+      padding: 10px 15px;
+      font-size: 0.95rem;
+      color: #444;
+      text-align: center;
+    }
+
+    .show {
+      display: block !important;
+    }
+
+    footer {
+      margin-left: 250px;
+      padding: 20px 40px;
+      background-color: #f2f2f2;
+      color: #555;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      .sidebar img {
+        display: none;
+      }
+
+      .content, footer {
+        margin-left: 0;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú lateral -->
+  <div class="sidebar">
+    <img src="Recursos/Logo Trilce.png" alt="Logo Trilce" />
+    <a href="index.html">Inicio</a>
+    <a href="reportes.html">Reportes</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="content">
+    <h1 class="title">Galería Académica</h1>
+    <p>Haz clic en una sede para ver más información.</p>
+
+    <div class="row g-4">
+
+      <!-- Tarjeta 1 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc1')">
+          <img src="Recursos/sede1.jpeg" alt="Sede Salaverry">
+          <div class="gallery-caption">Sede Salaverry</div>
+          <div class="description" id="desc1">
+            Moderna infraestructura con enfoque en ciencias y tecnología.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc2')">
+          <img src="Recursos/sede2.jpeg" alt="Sede La molina">
+          <div class="gallery-caption">Sede La molina</div>
+          <div class="description" id="desc2">
+            Espacios amplios, biblioteca avanzada y laboratorios equipados.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc3')">
+          <img src="Recursos/sede3.jpeg" alt="Sede Lima">
+          <div class="gallery-caption">Sede Lima</div>
+          <div class="description" id="desc3">
+            Áreas verdes y enfoque en educación personalizada.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc4')">
+          <img src="Recursos/sede4.jpeg" alt="Sede Callao">
+          <div class="gallery-caption">Sede Callao</div>
+          <div class="description" id="desc4">
+            Enfocada en innovación educativa con talleres creativos.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc5')">
+          <img src="Recursos/sede5.jpeg" alt="Sede Villa el salvador">
+          <div class="gallery-caption">Sede Villa el salvador</div>
+          <div class="description" id="desc5">
+            Reconocida por su programa de ciencias sociales y arte.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6 -->
+      <div class="col-md-4">
+        <div class="gallery-item" onclick="toggleDesc('desc6')">
+          <img src="Recursos/sede6.jpeg" alt="Sede 6">
+          <div class="gallery-caption">Sede Miraflores</div>
+          <div class="description" id="desc6">
+            Centro de excelencia académica con alianzas internacionales.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer>
+    Desarrollado por: Santiago Quijano Soto, Allison Castañeda Ramirez, Katiuska Patilla de la Cruz
+  </footer>
+  <script>
+    function toggleDesc(id) {
+      const element = document.getElementById(id);
+      element.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
